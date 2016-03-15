@@ -1,0 +1,13 @@
+# gazebo起動
+roslaunch hrpsys_gazebo_tutorials gazebo_hrp2jsk_no_controllers.launch
+# hrpsys起動
+rtmlaunch hrpsys_gazebo_tutorials hrp2jsk_hrpsys_bringup.launch KINEMATICS_MODE:=true
+# 認識プログラム起動
+roslaunch jsk_pcl_ros hsi_color_filter.launch INPUT:=/xtion/depth/points s_min:=20
+# 可視化
+roscd hrpsys_gazebo_tutorials/
+rviz -d demo.rviz
+# eus
+roscd hrpsys_gazebo_tutorials/euslisp
+roseus tutorial-demo.l
+(demo)
